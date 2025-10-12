@@ -1,11 +1,11 @@
-import React, { use, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/footer";
 import MobileNavigation from "./components/MobileNavigation";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setBannerData, setImage } from "./store/MovieoSlice";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
   return (
     <main className="pb-15 lg:pb-0">
       <Header />
-      <div className="">
+      <div className="min-h-screen">
         <Outlet />
       </div>
       <Footer />

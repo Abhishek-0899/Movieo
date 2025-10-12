@@ -1,12 +1,16 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserAstronaut } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { navigation } from "../constant/Navigation";
 
 const Header = () => {
+  const location = useLocation();
   const [searchInput, setSearchInput] = useState("");
+  const removeSpace = location?.search?.slice(3).split("%q");
   const navigate = useNavigate();
+  // console.log(location)
+  // console.log("removeSpace",removeSpace);
 
   const handleSubmit = (e) => {
     e.preventDefault();

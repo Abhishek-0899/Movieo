@@ -16,7 +16,11 @@ const Cards = ({ data, trending, index, media_type }) => {
       className="w-full min-w-[230px] max-w-[230px] rounded h-full overflow-hidden
     relative block hover:scale-110 transition-all duration-300 ease-in-out"
     >
-      <img src={imageUrl + data.poster_path} alt={data.title} />
+      {data?.poster_path ? (
+        <img src={imageUrl + data.poster_path} alt={data.title} />
+      ) : (
+        <div className="bg-neutral-800 h-full w-full flex justify-center items-center">No Image Found</div>
+      )}
       <div className="absolute top-3 left-4">
         {trending && (
           <div
