@@ -2,12 +2,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import moment from "moment/moment";
 import { Link } from "react-router-dom";
-const Cards = ({ data, trending, index }) => {
+const Cards = ({ data, trending, index, media_type }) => {
   const imageUrl = useSelector((state) => state.movieoData.imageUrl);
+  const mediaType = data.media_type ?? media_type;
+
   return (
-    <Link to={ data?.media_type ? `/${data?.media_type}/${data?.id}` : `/movie/${data?.id}` }
+    <Link
+      to={
+        data?.mediaType
+          ? `/${data?.mediaType}/${data?.id}`
+          : `/movie/${data?.id}`
+      }
       className="w-full min-w-[230px] max-w-[230px] rounded h-full overflow-hidden
-    relative "
+    relative block hover:scale-110 transition-all duration-300 ease-in-out"
     >
       <img src={imageUrl + data.poster_path} alt={data.title} />
       <div className="absolute top-3 left-4">
@@ -29,7 +36,9 @@ const Cards = ({ data, trending, index }) => {
         </h2>
         <div className="text-lg flex justify-between text-neutral-500">
           <p>{moment(data?.release_date).format("ll")}</p>
-          <p className="bg-gray-400 text-white px-1 rounded-full">Rating : {Number(data?.vote_average?.toFixed(1))}</p>
+          <p className="bg-gray-400 text-white px-1 rounded-full">
+            Rating : {Number(data?.vote_average?.toFixed(1))}
+          </p>
         </div>
       </div>
     </Link>

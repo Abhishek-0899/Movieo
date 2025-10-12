@@ -3,7 +3,7 @@ import Cards from "./Cards";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import "./../App.css";
 
-const HorizontalScrollCard = ({ data = [], heading,trending }) => {
+const HorizontalScrollCard = ({ data = [], heading,trending,media_type }) => {
   const container = useRef();
 
   const handleNext = () => {
@@ -34,6 +34,7 @@ const HorizontalScrollCard = ({ data = [], heading,trending }) => {
                 trending={trending}
                 data={data}
                 index={index + 1}
+                media_type={media_type}
               />
             );
           })}
