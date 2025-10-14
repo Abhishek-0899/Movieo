@@ -3,7 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { Meta, RouterProvider } from "react-router-dom";
-import Router from "../src/routes/Routes.jsx"
+import Router from "./routes/Routes.jsx";
 import axios from "axios";
 import { store } from "./store/store.jsx";
 import { Provider } from "react-redux";
