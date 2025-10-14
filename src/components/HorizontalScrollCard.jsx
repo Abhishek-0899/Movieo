@@ -3,7 +3,7 @@ import Cards from "./Cards";
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import "./../App.css";
 
-const HorizontalScrollCard = ({ data = [], heading,trending,media_type }) => {
+const HorizontalScrollCard = ({ data = [], heading, trending, media_type }) => {
   const container = useRef();
 
   const handleNext = () => {
@@ -15,8 +15,8 @@ const HorizontalScrollCard = ({ data = [], heading,trending,media_type }) => {
   };
 
   return (
-    <div className="container mx-auto px-3 my-8">
-      <h2 className="text-lg lg:text-3xl font-bold mb-4 text-white">
+    <div className="container mx-auto px-3 my-8 ">
+      <h2 className="text-lg lg:text-3xl font-bold mb-4 text-white capitalize">
         {heading}
       </h2>
       <div className="relative">

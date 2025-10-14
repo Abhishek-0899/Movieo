@@ -42,7 +42,7 @@ const BannerHome = () => {
   useEffect(() => {
     startAutoplay();
     return () => stopAutoplay();
-  }, [bannerData]);
+  }, [bannerData, imageUrl, currentImage]);
 
   return (
     <section className="w-full h-full">

@@ -50,7 +50,7 @@ const ExplorePage = () => {
       <div className="container mx-auto">
         <h2 className="capitalize text-lg font-bold my-2 lg:text-xl">
           popular {params.explore}
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
+          <div className="grid grid-cols-[repeat(auto-fit,230px)] justify-center lg:justify-start gap-6">
             {data.map((exploreData, index) => {
               return (
                 <Cards

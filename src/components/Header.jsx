@@ -55,9 +55,9 @@ const Header = () => {
               placeholder="Search here..."
               className="bg-transparent px-4 py-1 outline-none border-none hidden lg:block text-white"
             />
-            <button className="text-3xl cursor-pointer text-white">
+            <Link className="text-3xl cursor-pointer text-white">
               <AiOutlineSearch />
-            </button>
+            </Link>
           </form>
 
           <FaUserAstronaut

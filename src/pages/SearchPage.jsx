@@ -7,7 +7,8 @@ const SearchPage = () => {
   const location = useLocation();
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const query = location?.search?.slice(3);
+  const queryParams = new URLSearchParams(location.search);
+  const query = queryParams.get("q") || "";
   const navigate = useNavigate();
   const fetchData = async () => {
     try {
@@ -17,7 +18,12 @@ const SearchPage = () => {
           page: page,
         },
       });
-      setData((prev) => [...prev, ...response.data.results]);
+      setData((prev) => [
+        ...prev,
+        ...response.data.results.filter(
+          (items) => items.vote_average !== undefined
+        ),
+      ]);
       // console.log(response.data);
       // setTotalPageNo(response.data.total_pages);
     } catch (e) {
