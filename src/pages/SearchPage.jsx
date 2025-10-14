@@ -63,6 +63,7 @@ const SearchPage = () => {
           className="px-4 py-1 text-black font-serif bg-white w-full
           rounded-full"
           placeholder="Search movies"
+          value={query.split("%20").join("")}
           onChange={(e) => navigate(`/search?q=${e.target.value}`)}
         />
       </div>
