@@ -13,7 +13,7 @@ const HorizontalScrollCard = ({ data = [], heading, trending, media_type }) => {
   const handlePrev = () => {
     container.current.scrollLeft -= 200;
   };
-
+ 
   return (
     <div className="container mx-auto px-3 my-8 ">
       <h2 className="text-lg lg:text-3xl font-bold mb-4 text-white capitalize">

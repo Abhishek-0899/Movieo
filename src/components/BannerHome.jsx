@@ -18,16 +18,6 @@ const BannerHome = () => {
     setCurrentImage((prev) => (prev > 0 ? prev - 1 : bannerData.length - 1));
   };
 
-  // 1st way
-  //   useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentImage(prev =>
-  //       prev < bannerData.length - 1 ? prev + 1 : 0
-  //     );
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, [bannerData]);
-
   const startAutoplay = () => {
     stopAutoplay();
     intervalref.current = setInterval(handleNext, 2000);

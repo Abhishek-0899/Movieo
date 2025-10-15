@@ -1,13 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import Cards from "../components/Cards";
-
+// import Cards from "../components/Cards";
+const Cards = lazy(() => import("../components/Cards"));
 const ExplorePage = () => {
   const params = useParams();
   const [pageNo, setPageNo] = useState(1);
   const [data, setData] = useState([]);
-  const [totalPageNo, setTotalPageNo] = useState(0);
 
   console.log(params.explore);
 
@@ -53,11 +52,13 @@ const ExplorePage = () => {
           <div className="grid grid-cols-[repeat(auto-fit,230px)] justify-center lg:justify-start gap-6">
             {data.map((exploreData, index) => {
               return (
-                <Cards
-                  data={exploreData}
-                  key={index}
-                  media_type={params.explore}
-                />
+                <Suspense fallback={<p>Loading...</p>}>
+                  <Cards
+                    data={exploreData}
+                    key={index}
+                    media_type={params.explore}
+                  />
+                </Suspense>
               );
             })}
           </div>

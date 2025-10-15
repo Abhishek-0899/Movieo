@@ -1,20 +1,26 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Home from "../pages/Home";
-import ExplorePage from "../pages/ExplorePage";
-import DetaillPage from "../pages/DetaillPage,";
-import SearchPage from "../pages/SearchPage";
+const Home = lazy(() => import("../pages/Home"));
+const ExplorePage = lazy(() => import("../pages/ExplorePage"));
+const DetaillPage = lazy(() => import("../pages/DetaillPage,"));
+const SearchPage = lazy(() => import("../pages/SearchPage"));
+
+const withSuspense = (Component) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Component />
+  </Suspense>
+);
 
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <App />, 
+    element: <App />,
     children: [
-      { path: "", element: <Home /> },
-      {path:":explore" , element:<ExplorePage/>},
-      {path:":explore/:id" , element:<DetaillPage/>},
-      {path:"search" , element:<SearchPage/>},
+      { path: "", element: withSuspense(Home) },
+      { path: ":explore", element: withSuspense(ExplorePage) },
+      { path: ":explore/:id", element: withSuspense(DetaillPage) },
+      { path: "search",  element: withSuspense(SearchPage) },
     ],
   },
 ]);
